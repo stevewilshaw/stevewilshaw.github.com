@@ -1,0 +1,37 @@
+.timeline {
+
+	text {
+		fill: #ddd;
+	}
+	
+	line {
+		stroke: #404040;
+		stroke-width: 1;
+	}
+
+	.year {
+		stroke: #777;
+		font-size: 12px;
+	}
+
+	circle {
+		fill: transparent;
+		stroke: #272727;
+	}
+
+	.arc {
+
+		path {
+			
+			&:hover {
+			
+			}
+		}
+
+		&.skill path {
+		 
+		}
+
+	}
+
+}

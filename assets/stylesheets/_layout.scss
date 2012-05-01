@@ -1,0 +1,53 @@
+article,
+footer,
+header,
+hgroup,
+section {
+    display: block;
+}
+
+.container {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.row {
+	//outline: 1px dotted #f60;
+	// display: -webkit-box;
+ //  -webkit-box-orient: horizontal;
+ //  -webkit-box-pack: center;
+ //  -webkit-box-align: center;
+
+ 	padding-top: 80px;
+
+ 	overflow:hidden; 
+	_overflow:visible; 
+	zoom:1;
+}
+
+.col1, .col2 {
+	//outline: 1px dotted #f60;	
+}
+
+.col1 {
+	width: 500px;
+	float:left;
+
+	margin-left: 10px;
+
+	
+}
+
+.col2 {
+	width: 500px;
+	float: right;
+	margin-right: 30px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,173 @@
+html {
+    font-size: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+//Typography
+
+body {
+	margin: 0;
+	font-family: "GillSans-Light", "Gill Sans Light", Calibri, Trebuchet, sans-serif;
+	background: #181816 url('../../images/bg.png');
+	color: #fff;
+}
+
+h1 {
+	margin: 0 0 20px 0;
+	padding: 0 0 5px 0;
+	font-weight: normal;
+	color: #fff;
+	font-size: 22px;
+	text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	text-transform: none;
+	//border-bottom: 1px solid #2a2a2a;
+	//border-top: 1px solid #252525;	
+
+	// &::after {
+	// 	content:" ";
+	// 	margin-top: 5px;
+	// 	display:block;
+	// 	height: 0;
+	// 	//width: 50px;
+	// 	//outline:1px solid #f60;
+	// 	border-bottom: 1px solid #252525;
+	// 	border-top: 1px solid #000;
+	// }
+
+}
+
+p {
+	margin: 0;
+	font-size: 16px;
+	line-height: 21px;
+	color: #aaa;
+}
+
+
+
+a:focus {
+    outline: thin dotted;
+}
+	
+strong {
+	 font-weight: bold;
+	color: #fff;
+}
+
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+
+//Intro
+
+header {
+
+	margin: 40px 0 0px;
+	padding: 0 10px 20px;
+	border-bottom: 1px solid #000;
+	overflow:hidden; 
+	_overflow:visible; 
+	zoom:1;
+
+	hgroup {
+		float: left;
+	}
+
+	.title {
+		margin: 0 0 0px 0;
+		padding: 0 ;
+		font-weight: normal;
+		font-size: 36px;
+		line-height: 36px;
+		text-transform: none;
+		border: none;
+	}
+
+	.subtitle {
+		font-size: 16px;
+		color: #888;
+		margin: 0 0 10px;
+		//text-transform: uppercase;
+		border: none;
+		font-weight: normal;
+	}
+
+	.social-icons {
+		float: right;
+	}
+}
+
+.row {
+	border-top: 1px solid #2a2a2a;
+	border-bottom: 1px solid #000;
+}
+
+footer {
+	border-top: 1px solid #2a2a2a;
+	padding: 10px;
+
+	p {
+		color: #6a6a6a;
+		font-size: 12px;
+		text-align: right;
+	}
+
+	a {
+		color: #888;
+		text-decoration: none;
+	}
+}
+
+section {
+	margin-bottom: 60px;
+ h1 {
+	//border-bottom: 1px solid #444;
+	font-size: 30px;
+	margin: 30px 0 5px 0;
+}
+}
+
+.timeline {
+	margin-bottom: 80px;
+}
+
+.skills {
+	
+	ul {
+		list-style-type: none;
+		margin: 10px 0 0 0;
+		padding: 0 3px;
+	}
+
+	li {
+		width: 200px;
+		margin-right: 40px;
+		float: left;
+		font-size: 13px;
+		font-family: "GillSans-Light", "Gill Sans Light", Calibri, Trebuchet, sans-serif;
+		margin-bottom: 12px;
+		color: #ddd;
+
+		&:nth-child(2n) {
+			margin-right: 0;
+			//outline: 1px dotted #f60;
+		}
+
+		.label {
+			display: inline-block;
+			width: 80px;
+			margin-right: 10px;
+		}
+	}
+
+	svg {
+		border: 1px solid #444;
+		padding: 1px;
+		background-color: #000;
+	}
+
+}
