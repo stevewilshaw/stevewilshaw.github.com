@@ -22,9 +22,11 @@
 	.arc {
 
 		path {
+
+			-webkit-transition-duration: 0.1s;
 			
 			&:hover {
-			
+				fill: #fff;
 			}
 		}
 
@@ -32,6 +34,44 @@
 		 
 		}
 
+
+
+		.fade {
+			opacity: 0.8;
+		}
+
+		.active {
+			fill: #fff;
+			opacity: 1;
+		}
+
 	}
 
+}
+
+.tooltip {
+	display: none;
+	
+	position: absolute;
+	z-index: 42;
+	
+	background-color: #000;
+	background-color: rgba(0,0,0,0.7);
+	border: 1px solid #000;
+	-webkit-border-radius: 5px;
+	padding: 5px 15px;
+
+	.title {
+		color: #fff;
+		margin-bottom: 0;
+	}
+
+	.date {
+		font-size: 12px;
+	}
+}
+
+.visible {
+	display: block;
+	
 }

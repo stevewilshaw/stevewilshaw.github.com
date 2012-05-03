@@ -9,6 +9,9 @@ d3.json("/assets/data/data.json", function(data) {
 	var skill_colors3 = d3.interpolateRgb("#1cb8e9","#8ae7ff");
 	var skill_colors2 = d3.interpolateRgb("#8bc243","#a6ff3d");
 
+
+	var skill_colors2_highlight = d3.interpolateRgb("#8bc243","#a6ff3d");
+
 	// Parse Data
 
   	//skills = _(skills).sortBy(function(d){ return parse(d.start); });
@@ -39,8 +42,8 @@ d3.json("/assets/data/data.json", function(data) {
   	//Backend Skills
 
   	_(skills.backend).each(function(d,i) { 
-		d.start = d.start ? parse(d.start) : null;
-		d.end = d.end ? parse(d.end) : parse('Apr 2012'); //If no end date is set, then set to today.
+		d.start_date = d.start ? parse(d.start) : null;
+		d.end_date = d.end ? parse(d.end) : parse('Apr 2012'); //If no end date is set, then set to today.
 		d.ring = next_ring++;
 		d.color = skill_colors2(i/4); 
   	});
@@ -52,8 +55,8 @@ d3.json("/assets/data/data.json", function(data) {
   	//next_ring++; //Shift up to next ring.
 
 	_(skills.frontend).each(function(d,i) { 
-		d.start = d.start ? parse(d.start) : null;
-		d.end = d.end ? parse(d.end) : parse('Apr 2012'); //If no end date is set, then set to today.
+		d.start_date = d.start ? parse(d.start) : null;
+		d.end_date = d.end ? parse(d.end) : parse('Apr 2012'); //If no end date is set, then set to today.
 		d.ring = next_ring++;
 		d.color = skill_colors(i/8); 
 	});
@@ -63,8 +66,8 @@ d3.json("/assets/data/data.json", function(data) {
 	//Employment
   	
   	_(data.employment).each(function(d) {
-    	d.start = parse(d.start);
-    	d.end = parse(d.end);
+    	d.start_date = parse(d.start);
+    	d.end_date = parse(d.end);
     	d.ring = next_ring;
     	d.color = skill_colors3(0);
   	});
@@ -76,8 +79,8 @@ d3.json("/assets/data/data.json", function(data) {
   	next_ring++; //Shift up to next ring.
 
   	_(data.education).each(function(d) {
-  		d.start = parse(d.start);
-    	d.end = d.end ? parse(d.end) : (d.start + (86400000*90));
+  		d.start_date = parse(d.start);
+    	d.end_date = d.end ? parse(d.end) : (d.start + (86400000*90));
   		d.ring = next_ring;
   		d.color = skill_colors3(0.5);
   	});
@@ -89,8 +92,8 @@ d3.json("/assets/data/data.json", function(data) {
   	next_ring++; //Shift up to next ring.
 
   	_(data.freelance).each(function(d) {
-  		d.start = parse(d.start);
-    	d.end = parse(d.end);
+  		d.start_date = parse(d.start);
+    	d.end_date = parse(d.end);
   		d.ring = next_ring;
   		d.color = skill_colors3(1);
   	});
@@ -146,7 +149,22 @@ d3.json("/assets/data/data.json", function(data) {
 	// 	.attr('class', 'year')
 	// 	.text(function(d) { return d.year })
 	// 	 .attr("text-anchor", "middle")
-	// 	.attr('transform', "translate(5,-350)rotate(-90)");;	
+	// 	.attr('transform', "translate(5,-350)rotate(-90)");;
+
+	// Tooltip
+
+	var tooltip = d3.select("body")
+		.append("div")
+			.attr("class", "tooltip")
+			//.style("position", "absolute")
+			//.style("z-index", "10")
+			//.style("visibility", "hidden")
+			.text("a simple tooltip");
+
+	// d3.select("#timeline").on("mousemove", function(){ 
+	// 			//d3.selectAll('.arc path').classed('fade',true);
+	// 			//d3.select(this).classed('active',true);
+	// 			return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");} );
 
 	//Arc Generator
 
@@ -164,10 +182,10 @@ d3.json("/assets/data/data.json", function(data) {
 		.innerRadius(function(d) { return 50 + (d.ring*14); })
 		.outerRadius(function(d) { return 63 + (d.ring*14);	})
 		.startAngle(function(d,i) {
-   			return ((d.start - start_date) / (end_date - start_date) ) * Math.PI * 2;			
+   			return ((d.start_date - start_date) / (end_date - start_date) ) * Math.PI * 2;			
 		})
 		.endAngle(function(d) {
-			return ((d.end - start_date)/(end_date - start_date)) * Math.PI * 2;
+			return ((d.end_date - start_date)/(end_date - start_date)) * Math.PI * 2;
 		});
 	
 	// Start Pushing Nodes to timeline, one at a time
@@ -191,6 +209,9 @@ d3.json("/assets/data/data.json", function(data) {
 			.enter()
 			.append('g').attr('class',function(d) {
 				return 'arc ' + d.class + ' group-' + d.group + ' skill-' + d.name;
+			})
+			.on('mouseover', function() {
+
 			});
 
 		var arcs = g.append('path')
@@ -199,13 +220,32 @@ d3.json("/assets/data/data.json", function(data) {
 			.attr("d", arc_start)
 			.each(function(d) { d.previous = d; })
 			// .on("mouseover", function(d,i) { 
-			// 	this.attr('opacity', 0.5);
+			// 	console.log('Over', d.name);
+			// 	mouse_coordinates = d3.mouse("svg");
+			// 	console.log(mouse_coordinates);
+
+
+			// // 	this.attr('opacity', 0.5);
 			// })
-    		;;
+			.on("mouseover", function(d){ 
+				
+				tooltip.html('<p class="title">' + d.name + '</p><p class="date">' + d.start + ' - ' +  d.end + '</p>');
+				return tooltip.classed("visible",true);
+		})
+			 .on("mousemove", function(){ 
+			// 	//d3.selectAll('.arc path').classed('fade',true);
+			// 	//d3.select(this).classed('active',true);
+			 	return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");} )
+			.on("mouseout", function(d) { 
+				//d3.selectAll('.arc path').classed('fade',false);
+				//d3.select(this).classed('active',false);
+				return tooltip.classed("visible", false);
+			})
+    		;
 
 		arcs.transition()
 			.duration(function(d) {
-				duration = (d.end - d.start) / 20000000;
+				duration = (d.end_date - d.start_date) / 20000000;
 				return 1000; //duration;
 			})
 			//.ease("elastic")
@@ -213,7 +253,7 @@ d3.json("/assets/data/data.json", function(data) {
 	}
 
 	function arcTween(a) {
-		var i = d3.interpolate({end: a.start}, a);
+		var i = d3.interpolate({end_date: a.start_date}, a);
 		return function(t) { return arc(i(t)); };
 	}
 
@@ -247,6 +287,7 @@ d3.json("/assets/data/data.json", function(data) {
 		.attr('height', 8)
 		.attr('fill', function(d,i) { return d.color; }); 
 
+	
 
 });
 
