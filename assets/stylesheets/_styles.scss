@@ -47,7 +47,11 @@ p {
 
 
 a:focus {
-    outline: thin dotted;
+    outline: 1px dotted #bbb;
+}
+
+a:hover {
+	cursor:pointer;
 }
 	
 strong {
