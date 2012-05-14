@@ -1,5 +1,9 @@
 .timeline {
 
+	width: 500px;
+	height: 500px;
+	text-align:center;
+
 	text {
 		fill: #ddd;
 	}
@@ -19,30 +23,22 @@
 		stroke: #272727;
 	}
 
+	.active {
+		path {
+			fill: #F00;
+		}
+	}
+
 	.arc {
 
 		path {
-
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
 			-webkit-transition-duration: 0.1s;
+			-moz-transition-duration: 0.1s;
 			
 			&:hover {
 				fill: #fff;
 			}
-		}
-
-		&.skill path {
-		 
-		}
-
-
-
-		.fade {
-			opacity: 0.8;
-		}
-
-		.active {
-			fill: #fff;
-			opacity: 1;
 		}
 
 	}
@@ -58,8 +54,19 @@
 	background-color: #000;
 	background-color: rgba(0,0,0,0.7);
 	border: 1px solid #000;
-	-webkit-border-radius: 5px;
+	
 	padding: 5px 15px;
+
+	max-width: 200px;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	p {
+		line-height: 18px;
+		margin: 0;
+	}
 
 	.title {
 		color: #fff;
@@ -68,6 +75,12 @@
 
 	.date {
 		font-size: 12px;
+		margin: 0;
+	}
+
+	.description {
+		font-size: 13px;
+		color: #ddd;
 	}
 }
 

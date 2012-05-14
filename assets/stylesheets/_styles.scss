@@ -1,14 +1,24 @@
 html {
-    font-size: 100%; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-    -ms-text-size-adjust: 100%; /* 2 */
+    font-size: 100%; 
+    -webkit-text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%;
 }
-
-//Typography
 
 body {
 	margin: 0;
 	font-family: "GillSans-Light", "Gill Sans Light", Calibri, Trebuchet, sans-serif;
+	//font-family: 'PT Sans Narrow', sans-serif;
+	//font-family: "Century Gothic";
+	
+	//font-family: 'Lato', sans-serif;
+	// font-family: 'PT Sans', sans-serif;
+	//font-family: 'Quicksand', sans-serif;
+	// font-family: 'Magra', sans-serif;
+	// font-family: 'Asap', sans-serif;
+	// font-family: 'Oxygen', sans-serif;
+	// font-family: 'Quattrocento Sans', sans-serif;
+	//font-family: 'Open Sans', sans-serif;
+
 	background: #181816 url('../../images/bg.png');
 	color: #fff;
 }
@@ -21,20 +31,6 @@ h1 {
 	font-size: 22px;
 	text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 	text-transform: none;
-	//border-bottom: 1px solid #2a2a2a;
-	//border-top: 1px solid #252525;	
-
-	// &::after {
-	// 	content:" ";
-	// 	margin-top: 5px;
-	// 	display:block;
-	// 	height: 0;
-	// 	//width: 50px;
-	// 	//outline:1px solid #f60;
-	// 	border-bottom: 1px solid #252525;
-	// 	border-top: 1px solid #000;
-	// }
-
 }
 
 p {
@@ -61,8 +57,8 @@ strong {
 
 
 img {
-    border: 0; /* 1 */
-    -ms-interpolation-mode: bicubic; /* 2 */
+    border: 0; 
+    -ms-interpolation-mode: bicubic;
 }
 
 
@@ -70,7 +66,7 @@ img {
 
 header {
 
-	margin: 40px 0 0px;
+	margin: 40px 0 0;
 	padding: 0 10px 20px;
 	border-bottom: 1px solid #000;
 	overflow:hidden; 
@@ -82,7 +78,7 @@ header {
 	}
 
 	.title {
-		margin: 0 0 0px 0;
+		margin: 0 0 0 0;
 		padding: 0 ;
 		font-weight: normal;
 		font-size: 36px;
@@ -95,13 +91,19 @@ header {
 		font-size: 16px;
 		color: #888;
 		margin: 0 0 10px;
-		//text-transform: uppercase;
 		border: none;
 		font-weight: normal;
 	}
 
 	.social-icons {
+		list-style-type: none;
 		float: right;
+		margin: 0;
+		padding: 0;
+
+		li {
+			float:left;
+		}
 	}
 }
 
@@ -128,11 +130,11 @@ footer {
 
 section {
 	margin-bottom: 60px;
- h1 {
-	//border-bottom: 1px solid #444;
-	font-size: 30px;
-	margin: 30px 0 5px 0;
-}
+	
+	h1 {
+		font-size: 30px;
+		margin: 20px 0 5px 0;
+	}
 }
 
 .timeline {
@@ -158,7 +160,6 @@ section {
 
 		&:nth-child(2n) {
 			margin-right: 0;
-			//outline: 1px dotted #f60;
 		}
 
 		.label {
@@ -166,12 +167,37 @@ section {
 			width: 80px;
 			margin-right: 10px;
 		}
-	}
 
-	svg {
-		border: 1px solid #444;
-		padding: 1px;
-		background-color: #000;
-	}
+		svg {
+			border: 1px solid #444;
+			padding: 1px;
+			background-color: #000;
+		}
 
+		&.active {
+
+			svg {
+				border: 1px solid #eee;
+			}
+
+
+			background-color: #333;
+			background-color: rgba(255,255,255,0.4);
+			color: #fff;
+		}
+	}
+}
+
+.timeline .notice {
+	padding-top: 100px;
+}
+
+.notice {
+	display: block;
+	font-size: 13px;
+	color: #aaa;
+}
+
+noscript {
+	
 }
