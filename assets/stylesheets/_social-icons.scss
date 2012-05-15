@@ -1,10 +1,14 @@
 .social-icons {
-	margin-top: 5px;
+	
 	float: right;
 
+	li {
+		float:left;
+	}
+
 	.icon {
-		
 	 	text-indent: -9999px;
+	 	direction: ltr;
 	 	display: block;
 	 	float:left;
 	    background: url(../../images/social-icons.png);
@@ -17,7 +21,6 @@
 	.icon-linkedin { background-position: -32px 0; }
 	.icon-twitter { background-position: -64px 0; }
 	.icon-gplus { background-position: -96px 0;	}
-	
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {

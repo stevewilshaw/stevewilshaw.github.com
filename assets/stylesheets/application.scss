@@ -1,5 +1,10 @@
-@import "_layout.scss";
-@import "_styles.scss";
-@import "_timeline.scss";
-@import "_social-icons.scss";
-//@import "_responsive.scss";
+@import "normalize";
+@import "mixins";
+@import "layout";
+@import "styles";
+@import "header";
+@import "social-icons";
+@import "footer";
+@import "skills";
+@import "timeline";
+@import "tooltip";

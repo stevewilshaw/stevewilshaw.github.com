@@ -1,33 +1,22 @@
-// Container
-
-.container {
-	width: 1140px;
-	margin: 0 auto;
-}
-
 body {
 	font: 13px "GillSans-Light", "Gill Sans Light", Calibri, Trebuchet, sans-serif; 
 	background: #181816 url('../../images/bg.png');
 	color: #fff;
 }
 
-//Type
-
 h1 {
-    //font-size: 22px;
 	font-size: 30px;
 	font-weight: normal;
-	//margin: 0 0 20px 0;
 	margin: 20px 0 10px 0;
-	//padding: 0 0 5px 0;
 	color: #fff;
 	text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 	text-transform: none;
 }
 
-section {
-	//outline: 1px dotted #f60;
-	//padding: 20px 0;
+h2 {
+	font-size: 26px;
+	font-weight: normal;
+	margin: 0 0 10px 0;
 }
 
 p {
@@ -46,43 +35,4 @@ ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
-
-
-
-// Home Page
-
-.row {
-	border-top: 1px solid #2a2a2a;
-	border-bottom: 1px solid #000;
-}
-
-
-
-.row {
- 	@include clearfix;
- 	padding: 80px 0;
-}
-
-.col1 {
-	width: 500px;
-	float:left;
-	margin-left: 10px;	
-}
-
-.col2 {
-	width: 500px;
-	float: right;
-	margin-right: 30px;
-}
-
-
-.timeline .notice {
-	padding-top: 100px;
-}
-
-.notice {
-	display: block;
-	font-size: 13px;
-	color: #aaa;
 }
