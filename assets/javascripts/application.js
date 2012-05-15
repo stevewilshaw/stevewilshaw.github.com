@@ -1,5 +1,10 @@
 if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1")) {
 
+	/**
+	* Woohoo.. we have SVG support : )
+	* Use D3.js to get data.json and render the charts
+	*/ 
+
 	d3.json("/assets/data/data.json", function(data) {
 
 		var timeline, timeline_width = 500, timeline_height = 500; //Timeline SVG.
@@ -23,8 +28,6 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 		// Time Scale for converting Dates to Radians
 		var angle = d3.time.scale().domain([start_date, end_date]).range([0,2*Math.PI]);
 
-
-
 		// Parse Dates & Calculate Rings
 		var next_ring = 0;
 		queue = _(data).flatten();
@@ -47,8 +50,8 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 		// Now, calculate colors based on the ring position
 		_(queue).each(function(d) { 
 			color_func = d.group ? colors[d.group] : colors.experience;
-			//d.color = color_func(d.ring/rings_available.length);
-			d.color = color_func(0);
+			d.color = color_func(d.ring/rings_available.length);
+			//d.color = color_func(0);
 		});
 		
 	  	/**
@@ -113,20 +116,29 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 				.duration(1000)
 				.attrTween("d", arcTween);
 
-			arcs.on("mouseover", function(d) {
-					//Show Tooltip
-					template = _.template('<p class="title"><%=name%></p><% if (description) { %><p class="description"><%=description%></p><% } %><p class="date"><%=start%> - <%=end%></p>');
-					tooltip.html(template({name: d.name, start: d.start, end: d.end, description: d.description}));
-					tooltip.classed("visible",true);
-				})
-				.on("mouseout", function(d) {
-					tooltip.classed("visible", false); //Hide Tooltip
-				})
-				.on("mousemove", function(event) {
-					mx = d3.event.pageX;
-					my = d3.event.pageY;
-					tooltip.style("top", (my-10)+"px").style("left",(mx+10)+"px");
-				});		
+			arcs.on("mouseover", show_tooltip)
+				.on("mouseout", hide_tooltip)
+				.on("mousemove", position_tooltip);		
+		}
+
+		/** 
+		*	Tooltip Functions
+		*/
+
+		function show_tooltip(d) {
+			template = _.template('<p class="title"><%=name%></p><% if (description) { %><p class="description"><%=description%></p><% } %><p class="date"><%=start%> - <%=end%></p>');
+			tooltip.html(template({name: d.name, start: d.start, end: d.end, description: d.description}));
+			tooltip.classed("visible",true);
+		}
+
+		function hide_tooltip() {
+			tooltip.classed("visible", false); //Hide Tooltip
+		}
+
+		function position_tooltip(event) {
+			mx = d3.event.pageX;
+			my = d3.event.pageY;
+			tooltip.style("top", (my-10)+"px").style("left",(mx+10)+"px");
 		}
 
 		/**
@@ -180,11 +192,20 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 			.attr('fill', function(d,i) { 
 				color_func = colors[d.group];
 				return color_func(0.5);  //d.color
-			 }); 
+			 });
+
+		li.on("mouseover", show_tooltip)
+			.on("mouseout", hide_tooltip)
+			.on("mousemove", position_tooltip);	
+
 	});
 
 } else {
-	//alert('no svg');
+
+	/**
+	* No SVG Support :(
+	*/
+	
 	el = document.getElementById("timeline");
 	el.innerHTML = '<p class="notice">Sorry, but your browser does not support inline SVG. Please use a modern browser such as Chrome, Safari, Firefox, Opera or Internet Explorer 9</p>';
 }
