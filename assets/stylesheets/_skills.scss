@@ -16,6 +16,7 @@
 		color: #ddd;
 
 		@include border-radius(3px);
+		@include transition(0.1s);
 
 		&:nth-child(2n) {
 			margin-right: 0;
