@@ -45,6 +45,9 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 	    		d.ring++;
 	    	rings_available[d.ring] = d.end_date;
 
+	    	//
+	    	d.id = d.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'); 
+	    	
 		});
 
 		// Now, calculate colors based on the ring position
@@ -106,18 +109,27 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 				.data(items)
 				.enter()
 				.append('g')
-				.attr('class', 'arc');
+				.attr('class', 'arc')
+				
 
 			var arcs = g.append('path')
+				.attr('class', function(d) { return d.id })
 				.attr('fill', function(d, i) { return d.color; })
 				.each(function(d) { d.previous = d; });
+
 
 			arcs.transition()
 				.duration(1000)
 				.attrTween("d", arcTween);
 
-			arcs.on("mouseover", show_tooltip)
-				.on("mouseout", hide_tooltip)
+			arcs.on("mouseover", function(d) {
+					d3.select('#skills .' + d.id).classed('active',true);
+					show_tooltip(d)
+				})
+				.on("mouseout", function(d) {
+					d3.select('#skills .' + d.id).classed('active',false);
+					hide_tooltip()
+				})
 				.on("mousemove", position_tooltip);		
 		}
 
@@ -165,15 +177,13 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 			.sortBy(function(d,i) { return d.group == 'frontend' ? i : i+100; })
 			.value();
 
-		var skills = d3.select("#skills");
-
-		skills.append('h1').text('My Skills');
-		var list = skills.append('ul');
+		var list = d3.select("#skills").append('ul');
 		
 		var li = list.selectAll("li")
 			.data(skill_list)
 			.enter()
-			.append("li");
+			.append("li")
+			.attr('class', function(d) { return d.id});
 		
 		li.append('span')
 		 	.text(function(d) { return d.name; })
@@ -189,14 +199,17 @@ if (document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Basic
 			.duration(1000)
 			.attr('width', function(d) { return d.rank*10 })
 			.attr('height', 8)
-			.attr('fill', function(d,i) { 
-				color_func = colors[d.group];
-				return color_func(0.5);  //d.color
-			 });
+			.attr('fill', function(d,i) { return d.color });
 
-		li.on("mouseover", show_tooltip)
-			.on("mouseout", hide_tooltip)
-			.on("mousemove", position_tooltip);	
+		li.on("mouseover", function(d) {
+				d3.select('#timeline .' + d.id).classed('active',true);
+				show_tooltip(d);
+			})
+			.on("mouseout", function(d) {
+				d3.select('#timeline .' + d.id).classed('active',false);
+				hide_tooltip(d);
+			})
+			.on("mousemove", position_tooltip)	
 
 	});
 
