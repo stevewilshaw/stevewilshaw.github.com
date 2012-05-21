@@ -1,0 +1,19 @@
+@mixin clearfix {
+	overflow:hidden; 
+	_overflow:visible; 
+	zoom:1;
+}
+
+@mixin transition($def) {
+	-webkit-transition: $def;
+	-moz-transition: $def;
+	-o-transition: $def;
+	-ms-transition: $def;
+	transition: $def;
+}
+
+@mixin border-radius($def) {
+	-webkit-border-radius: $def;
+	-moz-border-radius: $def;
+	border-radius: $def;
+}

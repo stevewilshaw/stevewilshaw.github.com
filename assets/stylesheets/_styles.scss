@@ -1,0 +1,38 @@
+body {
+	font: 13px "GillSans-Light", "Gill Sans Light", Calibri, Trebuchet, sans-serif; 
+	background: #181816 url('../../images/bg.png');
+	color: #fff;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: normal;
+	margin: 20px 0 10px 0;
+	color: #fff;
+	text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+	text-transform: none;
+}
+
+h2 {
+	font-size: 26px;
+	font-weight: normal;
+	margin: 0 0 10px 0;
+}
+
+p {
+	margin: 0;
+	font-size: 16px;
+	line-height: 21px;
+	color: #aaa;
+}
+
+strong {
+    font-weight: bold;
+    color: #fff;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}

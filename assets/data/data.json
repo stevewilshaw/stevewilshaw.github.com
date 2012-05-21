@@ -1,0 +1,50 @@
+{	
+
+	"skills" : [	
+
+		{ "name" : "Perl", "start" : "Jun 1997", "end" : "Jun 2000" , "group" : "other"},
+		{ "name" : "Visual Basic", "start" : "Sep 1995", "end" : "Sep 1997", "group" : "other"},	
+		{ "name" : "Java", "start" : "Sep 1997", "end" : "Jun 1998" , "group" : "other"},
+		{ "name" : "C++", "start" : "Jun 1998", "end" : "May 2000" , "group" : "other"},
+		{ "name" : "Open GL", "start" : "Jun 1999", "end" : "May 2000" , "group" : "other"},
+		{ "name" : "PHP", "start" : "Jun 2000", "end" : "Present", "rank": 7, "group" : "backend" },
+		{ "name" : "Flash", "start" : "Sep 2000", "end" : "Sep 2001" , "group" : "other"},
+		{ "name" : "SQL", "start" : "Jan 2004", "end" : "Present", "rank": 5 , "group" : "backend"},
+		{ "name" : "Wordpress",  "start" : "Jan 2007", "end" : "Present", "rank": 7, "group" : "backend"},
+		{ "name" : "Ruby on Rails", "start" : "Jan 2011", "end" : "Present", "rank": 4 , "group" : "backend"},
+
+		{ "name" : "HTML", "start" : "Jan 1996", "end" : "Present", "rank": 10 , "group" : "frontend"},
+		{ "name" : "CSS", "start" : "Jul 1999", "end" : "Present", "rank": 10 , "group" : "frontend"},
+		{ "name" : "jQuery", "start" : "Jan 2008", "end" : "Present", "rank": 9, "group" : "frontend" },
+		{ "name" : "Sass / SCSS", "start" : "Jan 2011", "end" : "Present", "rank": 9, "group" : "frontend"},
+		{ "name" : "Canvas", "start" : "Jan 2011", "end" : "Present", "rank": 7, "group" : "frontend"},
+	    { "name" : "SVG", "start" : "Jan 2011", "end" : "Present", "rank": 8, "group" : "frontend" },
+		{ "name" : "Backbone.js", "start" : "Jan 2012", "end" : "Present", "rank": 4, "group" : "frontend"},
+		{ "name" : "D3.js", "start" : "Feb 2012", "end" : "Present", "rank": 6, "group" : "frontend"}
+			   
+	],
+
+	"employment" : [
+		{ "name" : "Unilever Research", "description" : "Contract Work", "start": "Jun 1998", "end": "Jan 2000" },
+		{ "name" : "Cybertechnics", "description" : "Web Developer", "start": "Jun 2000", "end": "Jan 2001" },
+		{ "name" : "Peerex", "description" : "Web Developer", "start": "Jan 2001", "end": "Jun 2005" },
+		{ "name" : "Ask4", "description" : "Web Developer & UX Designer", "start": "Jun 2005", "end": "Present" }
+	],
+
+	"education" : [
+		{ "name" : "A-Level Computer Science ", "description" : "A-Level Maths, Physics &amp; Computer Science at Birkenhead Sixth Form College", "start": "Sep 1995", "end": "Sep 1997" },
+		{ "name" : "BSc Computer Science", "description" : "University of Sheffield", "start": "Sep 1997", "end": "Jun 2000" },
+		{ "name" : "Japanese Language & Society", "description" : "University of Sheffield", "start": "Sep 2001", "end": "Jun 2002" },
+		{ "name" : "DiBi Conference", "start" : "Apr 2010", "description": "Design It, Build It. Conference"},
+		{ "name" : "FOWD Conference", "start" : "May 2010", "description": "Future of Web Design Conference" },
+		{ "name" : "MagRails Conference", "start" : "Oct 2011"}
+	],
+
+	"freelance" : [
+		{ "name" : "Charity Unleashed", "description" : "Freelance Work", "start": "Aug 2009", "end": "Oct 2010" },
+		{ "name" : "Housing Help", "description" : "Freelance Work", "start": "Aug 2011", "end": "Feb 2012" }
+	]
+}
+
+
+

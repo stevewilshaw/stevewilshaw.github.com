@@ -1,0 +1,50 @@
+.timeline {
+
+	width: 500px;
+	height: 500px;
+	text-align:center;
+	float: right;
+	margin-right: 30px;
+
+	text {
+		fill: #ddd;
+	}
+	
+	line {
+		stroke: #404040;
+		stroke-width: 1;
+	}
+
+	.year {
+		stroke: #777;
+		font-size: 12px;
+	}
+
+	circle {
+		fill: transparent;
+		stroke: #272727;
+	}
+
+	.arc {
+
+		path {
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			@include transition(0.1s);
+
+			&:hover, &.active {
+				fill: #fff;
+			}
+		}
+	}
+}
+
+// Notice to be displayed if Javascript or SVG aren't supported.
+
+.notice {
+	background-color: #800;
+	display: block;
+	padding: 8px;
+	margin: 100px auto 0;
+	width: 300px;
+	color: #fff;
+}

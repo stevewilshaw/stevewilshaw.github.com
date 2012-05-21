@@ -1,0 +1,19 @@
+// Very Basic Layout
+
+.container {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+.page {
+	border-top: 1px solid #2a2a2a;
+	border-bottom: 1px solid #000;
+	@include clearfix;
+ 	padding: 80px 0;
+}
+
+.about {
+ 	width: 500px;
+ 	float:left;
+ 	margin-left: 10px;	
+}

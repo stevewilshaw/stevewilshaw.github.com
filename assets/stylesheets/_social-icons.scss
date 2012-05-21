@@ -1,0 +1,39 @@
+.social-icons {
+	
+	float: right;
+
+	li {
+		float:left;
+	}
+
+	.icon {
+	 	text-indent: -9999px;
+	 	direction: ltr;
+	 	display: block;
+	 	float:left;
+	    background: url(../../images/social-icons.png);
+	    height:32px; 
+		width:32px;
+		margin-right: 5px;
+	}
+
+	.icon-github { background-position: 0 0; }
+	.icon-linkedin { background-position: -32px 0; }
+	.icon-twitter { background-position: -64px 0; }
+	.icon-gplus { background-position: -96px 0;	}
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  	.social-icons {
+
+  		.icon {
+     		background: url(../../images/social-icons_2x.png); 
+     		background-size:128px 32px;
+     	}
+
+     	.icon-github { background-position: 0 0; }
+		.icon-linkedin { background-position: -32px 0; }
+		.icon-twitter { background-position: -64px 0; }
+		.icon-gplus { background-position: -96px 0;	}
+  	}
+}

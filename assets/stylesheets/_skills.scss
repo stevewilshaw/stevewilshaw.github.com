@@ -1,0 +1,49 @@
+
+
+.skills {
+
+	margin-top: 60px;
+	
+	ul {
+		@include clearfix;
+	}
+
+	li {
+		width: 200px;
+		margin-right: 40px;
+		float: left;
+		padding: 6px 5px;
+		color: #ddd;
+
+		@include border-radius(3px);
+		@include transition(0.1s);
+
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+
+		.label {
+			display: inline-block;
+			width: 80px;
+			margin-right: 10px;
+		}
+
+		svg {
+			border: 1px solid #444;
+			padding: 1px;
+			background-color: #000;
+		}
+
+		&.active, &:hover {
+
+			svg {
+				border: 1px solid #aaa;
+				-webkit-box-shadow: 0 0 4px rgba(255,225,255,0.5);
+			}
+
+			background-color: #333;
+			background-color: rgba(255,255,255,0.1);
+			color: #fff;
+		}
+	}
+}
