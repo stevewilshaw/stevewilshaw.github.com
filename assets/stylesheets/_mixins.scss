@@ -4,6 +4,43 @@
 	zoom:1;
 }
 
+@mixin border-radius($def) {
+	-webkit-border-radius: $def;
+	-moz-border-radius: $def;
+	border-radius: $def;
+}
+
+@mixin box-shadow($shadow) {
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-o-box-shadow: $shadow;
+	box-shadow: $shadow;
+
+}
+
+@mixin linear-gradient($start, $end) {
+	background-image: linear-gradient(top, $start 0%, $end 100%);
+	background-image: -o-linear-gradient(top, $start 0%, $end 100%);
+	background-image: -moz-linear-gradient(top, $start 0%, $end 100%);
+	background-image: -webkit-linear-gradient(top, $start 0%, $end 100%);
+	background-image: -ms-linear-gradient(top, $start 0%, $end 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, $start),
+		color-stop(1, $end)
+	);
+}
+
+@mixin perspective($perspective) {
+	-webkit-perspective: $perspective;
+	-moz-perspective: $perspective;
+	-o-perspective: $perspective;
+	perspective: $perspective;
+}
+
 @mixin transition($def) {
 	-webkit-transition: $def;
 	-moz-transition: $def;
@@ -12,8 +49,71 @@
 	transition: $def;
 }
 
-@mixin border-radius($def) {
-	-webkit-border-radius: $def;
-	-moz-border-radius: $def;
-	border-radius: $def;
+@mixin transition-duration($duration) {
+	-webkit-transition-duration: $duration;
+	-moz-transition-duration: $duration;
+	-o-transition-duration: $duration;
+	transition-duration: $duration;
 }
+
+@mixin transform($transform) {
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-o-transform: $transform;
+	transform: $transform;
+
+}
+
+@mixin transform-style($transform_style) {
+	-webkit-transform-style: $transform_style;
+	-moz-transform-style: $transform_style;
+	-o-transform-style: $transform_style;
+	transform-style: $transform_style;
+		
+} 
+
+@mixin backface-visibility($style) {
+	-webkit-backface-visibility: $style;
+	-moz-backface-visibility: $style;
+	-o-backface-visibility: $style;
+	backface-visibility: $style;
+}
+
+
+@mixin animation($animation) {
+	-webkit-animation: $animation;
+	-moz-animation: $animation;    
+	-o-animation: $animation;
+	animation: $animation;
+}
+
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+
+	@-moz-keyframes $animation-name {
+		@content;
+	}
+
+	@-o-keyframes $animation-name {
+		@content;
+	}
+
+	@keyframes $animation-name {
+		@content;
+	}
+}
+
+
+
+@mixin blue-button-glow($opacity:0.3) {
+	$shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 0 4px 1px rgba(50,235,251,$opacity), 0 2px 4px rgba(0,0,0,0.5);
+	@include box-shadow($shadow);
+}
+
+@mixin orange-button-glow($opacity:0.3) {
+	$shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 0 4px 1px rgba(254,179,0,$opacity), 0 2px 4px rgba(0,0,0,0.5);
+	@include box-shadow($shadow);
+}
+

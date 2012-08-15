@@ -12,9 +12,7 @@
 	<script type="text/javascript" src="assets/javascripts/libs/underscore-min.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/stylesheets/compiled/application.css">
 
-	<!--[if lt IE 9]>
-		<script src="assets/javascripts/libs/html5.js"></script>
-	<![endif]-->
+	<script type="text/javascript" src="../assets/javascripts/libs/modernizr.custom.js"></script>
 
 	<script>var _gaq=[['_setAccount','UA-20698776-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 	
@@ -24,10 +22,10 @@
 
 <div class="container">
 
-	<header>
+	<header class="header">
 
 		<hgroup class="logo">
-			<h1 class="title"><strong>Steve</strong> Wilshaw</h1>
+			<h1 class="title"><a href="/"><strong>Steve</strong> Wilshaw</a></h1>
 			<h2 class="subtitle">Front End Developer</h2>
 		</hgroup>
 
@@ -44,11 +42,13 @@
 
 		<section class="about">
 			<h1>About Me</h1>
-			<p>Hi! My name's <strong>Steve</strong> and I'm a <strong>Front End Web Developer</strong> with a passion for good design and great user experiences. I specialise in front end development, building web sites and web apps with <span class="css">CSS</span>, <span class="html">HTML</span> &amp; Javascript using libraries like jQuery, Zepto, Backbone.js and D3.js, but I can also build the backend code in PHP, Wordpress and Ruby on Rails.</p>
+			<p>Hi! My name's <strong>Steve</strong> and I'm a <strong>Front End Web Developer</strong> with a passion for good design and great user experiences. I specialise in front end development, building web sites and web apps with <span class="css">CSS</span>, <span class="html">HTML</span> &amp; Javascript using libraries like jQuery, Zepto, Backbone.js and D3.js, and I can also build the backend code in PHP, Wordpress and Ruby on Rails.</p>
 		
 			<div class="skills" id="skills">
 				<h2>My Skills</h2>
 			</div>
+
+			<p class="text-center"><a href="/portfolio/" class="btn">View my Portfolio &raquo;</a></p>
 
 		</section>
 		
@@ -60,13 +60,13 @@
 		
 	</div>
 
-	<footer>
+	<footer class="footer">
 		<p> <a href="https://github.com/SteveWilshaw/stevewilshaw.github.com">View Source on GitHub</a></p>
 	</footer>
  
 </div>
 
-<script type="text/javascript" src="assets/javascripts/application.js"></script>
+<script type="text/javascript" src="assets/javascripts/visual-cv.js"></script>
 
 </body>
 </html>

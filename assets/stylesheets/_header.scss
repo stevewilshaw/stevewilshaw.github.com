@@ -1,6 +1,8 @@
-header {
+.header {
+	position: relative;
 	padding: 40px 10px 20px;
-	border-bottom: 1px solid #000;
+	z-index: 1;
+	//border-bottom: 1px solid #000;
 	@include clearfix;
 
 	.logo {
@@ -20,5 +22,25 @@ header {
 			margin: 0 0 10px;
 			font-weight: normal;
 		}
+
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
 	}	
+
+	&:after {
+		position: absolute;
+		bottom: 0;
+		display: block;
+		content: "";
+		border-top: 1px solid #000;
+		border-bottom: 1px solid #2a2a2a;
+		width: 100%;
+	}
+
+}
+
+.no-generatedcontent .header {
+	border-bottom: 1px solid #2a2a2a;
 }
