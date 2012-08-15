@@ -1,0 +1,11 @@
+@include keyframes(blue-glow) {
+	0%   { @include blue-button-glow(0.3); }
+ 	50%   { @include blue-button-glow(0.9); }
+ 	100% { @include blue-button-glow(0.3); }
+}
+
+@include keyframes(orange-glow) {
+	0%   { @include orange-button-glow(0.3); }
+ 	50%   { @include orange-button-glow(0.9); }
+ 	100% { @include orange-button-glow(0.3); }
+}
