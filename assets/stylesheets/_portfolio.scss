@@ -1,6 +1,5 @@
 .portfolio {
 	@include perspective(800px);
-	-moz-transform-style: preserve-3d;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
@@ -198,10 +197,8 @@
 }
 
 
-
-
 // 
-//	For Browsers that dont support CSS Transitions simply display all the projects in a column... Sorry IE9 :(
+//	For Browsers that dont support CSS Transitions or Opacity simply display all the projects in a column.
 //
 
 .no-csstransforms, .no-opacity {
