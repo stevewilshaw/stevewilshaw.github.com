@@ -1,6 +1,66 @@
-var portfolio = (function () {  
+(function($) {
+  
+	function init() {
 
-	function showProject(id) {
+		// Delay activation each tile
+		$(".portfolio").find(".tile").each(function(index,element) {
+			setTimeout((function(element) {
+				return function() {
+					$(element).addClass("show");
+				}   
+			})(element), 120 + index * 100);
+      	});
+
+		// Bind Tile clicks
+		$("a.tile").on("click.portfolio", function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			var id = $(this).attr("href");
+			showProject(id);					
+		});
+
+		// Bind Next & Previous Button clicks
+		$(".next").on("click.portfolio", function(event) {
+			event.stopPropagation();
+			nextProject();
+		});
+
+		$(".prev").on("click.portfolio", function(event) {
+			event.stopPropagation();
+			previousProject();			
+		});
+
+		// Reset Everything on document click or touch
+		$(document).on("click.portfolio touchend.portfolio", reset);
+
+		//Bind Keys
+		$(document).on("keyup.portfolio",function(e){
+            
+            if(e.which == 27){
+            	reset();
+            }
+
+            if (e.keyCode == 13) {
+            	var id = "#pr1";
+            	if ($(".projects").hasClass("projects-active"))
+            		reset();
+            	else
+            		showProject(id);	
+            }
+
+            if (e.keyCode == 37) {
+            	previousProject();
+            }
+
+            if (e.keyCode == 39) {
+            	nextProject();
+            }
+
+        });
+
+	}
+
+  	function showProject(id) {
 		$(".projects").addClass("projects-active");
 		$(id).addClass("project-active");
 		$(".tiles").addClass("inactive");
@@ -30,75 +90,16 @@ var portfolio = (function () {
 		$(".tiles").removeClass("inactive");
 	}
 
-	// Start on window.load after all the images have loaded.
 
-	$(window).load(function() {
+	// Only initialise if browser support transitions. An alternate style for the 
+	// portfolio us defined using modernizr's css classes.
+	if (Modernizr.opacity && Modernizr.csstransforms) {
 
-		// Only initialise if browser support transitions. An alternate style for the 
-		// portfolio us defined using modernizr's css classes.
-
-		if (Modernizr.opacity && Modernizr.csstransforms) {
-
-			// Delay activation each tile
-			for(var i = 0; i <8; i++) {
-				setTimeout((function(d) { 
-
-					return function() {
-						$(".tile").eq(d).addClass("show");
-					}
-					
-				})(i),120 + i * 100);
-			}
-
-			// Bind Tile clicks
-			$("a.tile").click(function(event) {
-				event.preventDefault();
-				event.stopPropagation();
-				var id = $(this).attr("href");
-				showProject(id);					
-			});
-
-			// Bind Next & Previous Button clicks
-			$(".next").click(function(event) {
-				event.stopPropagation();
-				nextProject();
-			});
-
-			$(".prev").click(function(event) {
-				event.stopPropagation();
-				previousProject();			
-			});
-
-			// Reset Everything on document click
-			$(document).click(function() {
-				reset();
-			});
-
-			//Bind Keys
-			$(document).keyup(function(e){
-	            
-	            if(e.which == 27){
-	            	reset();
-	            }
-
-	            if (e.keyCode == 13) {
-	            	var id = "#pr1";
-	            	if ($(".projects").hasClass("projects-active"))
-	            		reset();
-	            	else
-	            		showProject(id);	
-	            }
-
-	            if (e.keyCode == 37) {
-	            	previousProject();
-	            }
-
-	            if (e.keyCode == 39) {
-	            	nextProject();
-	            }
-
-	        });
-		}
-	});
-	
-})();
+		// Start on window.load after all the images have loaded.
+		$(window).load(function() {
+			init();
+		});
+	}
+   
+                     
+})(jQuery);
